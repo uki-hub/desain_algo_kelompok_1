@@ -1,6 +1,10 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kelompok_1/pages/main_screen/pages/artimatika/aritmatika.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/bangun_datar.dart';
+import 'package:page_transition/page_transition.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -8,28 +12,38 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  Expanded _buildMainMenuTile({String text, String imageAssetPath}) {
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 0, left: 20, right: 20, top: 20),
-        clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(
-          color: Color(0xff252526),
-          borderRadius: BorderRadius.circular(20),
-          image: DecorationImage(
-            fit: BoxFit.contain,
-            alignment: Alignment.center,
-            image: AssetImage(imageAssetPath),
-          ),
-        ),
-        child: Container(
-          child: Center(
-            child: Text(
-              text,
-              style: TextStyle(
-                color: Colors.grey[100],
-                fontWeight: FontWeight.bold,
-                fontSize: ((MediaQuery.of(context).size.height * 0.9) * 0.1) * 0.7,
+  Widget _buildMainMenuTile({required String text, required String imageAssetPath, required VoidCallback onTap}) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.9 / 2,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Hero(
+          tag: text,
+          child: Material(
+            type: MaterialType.transparency,
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 0, left: 20, right: 20, top: 20),
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                color: Color(0xff252526),
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  fit: BoxFit.contain,
+                  alignment: Alignment.center,
+                  image: AssetImage(imageAssetPath),
+                ),
+              ),
+              child: Container(
+                child: Center(
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                      color: Colors.grey[100],
+                      fontWeight: FontWeight.bold,
+                      fontSize: ((MediaQuery.of(context).size.height * 0.9) * 0.1) * 0.7,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -38,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _buildSubMenuTile({IconData icon, Color iconColor, String text}) {
+  Widget _buildSubMenuTile({required IconData icon, required Color iconColor, required String text}) {
     return Expanded(
       child: Container(
         margin: EdgeInsets.all(5),
@@ -91,8 +105,26 @@ class _MainScreenState extends State<MainScreen> {
                   width: double.infinity,
                   child: Column(
                     children: [
-                      _buildMainMenuTile(text: 'Aritmatika', imageAssetPath: 'assets/images/aritmatika.png'),
-                      _buildMainMenuTile(text: 'Bangun Datar', imageAssetPath: 'assets/images/bangun_datar_1.png'),
+                      _buildMainMenuTile(
+                        text: 'Aritmatika',
+                        imageAssetPath: 'assets/images/aritmatika.png',
+                        onTap: () {
+                          Navigator.of(context).push(PageTransition(
+                            child: Aritmatika(),
+                            type: PageTransitionType.fade,
+                          ));
+                        },
+                      ),
+                      _buildMainMenuTile(
+                        text: 'Bangun Datar',
+                        imageAssetPath: 'assets/images/bangun_datar_1.png',
+                        onTap: () {
+                          Navigator.of(context).push(PageTransition(
+                            child: BangunDatar(),
+                            type: PageTransitionType.fade,
+                          ));
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -104,8 +136,8 @@ class _MainScreenState extends State<MainScreen> {
                   child: Row(
                     children: [
                       _buildSubMenuTile(icon: Icons.settings_rounded, iconColor: Colors.grey, text: 'Pengaturan'),
-                      _buildSubMenuTile(icon: Icons.star_rounded, iconColor: Colors.amber[700], text: 'Beri Rating'),
-                      _buildSubMenuTile(icon: Icons.info_rounded, iconColor: Colors.lightBlue[200], text: 'Tentang Kami'),
+                      _buildSubMenuTile(icon: Icons.star_rounded, iconColor: Colors.amber[700]!, text: 'Beri Rating'),
+                      _buildSubMenuTile(icon: Icons.info_rounded, iconColor: Colors.lightBlue[200]!, text: 'Tentang Kami'),
                     ],
                   ),
                 ),
