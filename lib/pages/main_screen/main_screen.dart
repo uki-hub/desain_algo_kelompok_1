@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/pages/artimatika/aritmatika.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/bangun_datar.dart';
+import 'package:kelompok_1/widgets/custom_button.dart';
 import 'package:page_transition/page_transition.dart';
 
 class MainScreen extends StatefulWidget {
@@ -90,10 +91,11 @@ class _MainScreenState extends State<MainScreen> {
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/background_dark.jpg"),
-            fit: BoxFit.cover,
-          ),
+          color: const Color(0xff333333),
+          // image: DecorationImage(
+          //   image: AssetImage("assets/images/background_dark.jpg"),
+          //   fit: BoxFit.cover,
+          // ),
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -117,7 +119,7 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                       _buildMainMenuTile(
                         text: 'Bangun Datar',
-                        imageAssetPath: 'assets/images/bangun_datar_1.png',
+                        imageAssetPath: 'assets/images/bangun_datar.png',
                         onTap: () {
                           Navigator.of(context).push(PageTransition(
                             child: BangunDatar(),
@@ -152,12 +154,9 @@ class _MainScreenState extends State<MainScreen> {
                   child: Text(
                     '© ${DateTime.now().year} - Kelompok 1',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey[50],
-                    ),
+                    style: TextStyle(color: Colors.grey[50]),
                   ),
                 ),
-                // SizedBox(height: 10),
               ],
             ),
           ),

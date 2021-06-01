@@ -1,86 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
-import 'package:kelompok_1/pages/main_screen/pages/artimatika/pages/modulus.dart';
-import 'package:kelompok_1/pages/main_screen/pages/artimatika/pages/pembagian.dart';
-import 'package:kelompok_1/pages/main_screen/pages/artimatika/pages/pengurangan.dart';
-import 'package:kelompok_1/pages/main_screen/pages/artimatika/pages/penjumlahan.dart';
-import 'package:kelompok_1/pages/main_screen/pages/artimatika/pages/perkalian.dart';
-import 'package:kelompok_1/pages/main_screen/pages/artimatika/pages/perpangkatan.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/segitiga/pages/segitiga_luas.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/basic_modal.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles.dart';
+import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles_text_only.dart';
 import 'package:kelompok_1/widgets/modal_pop_up.dart';
 
-class Aritmatika extends StatefulWidget {
+class Segitiga extends StatefulWidget {
   @override
-  _AritmatikaState createState() => _AritmatikaState();
+  _SegitigaState createState() => _SegitigaState();
 }
 
-class _AritmatikaState extends State<Aritmatika> {
+class _SegitigaState extends State<Segitiga> {
   bool _isDone = false;
   List<PageMenuTileModel> get _menuData => [
         PageMenuTileModel(
-          imageAsset: Penjumlahan.gImageAsset,
-          text: 'Penjumlahan',
-          textColor: Penjumlahan.gColor,
+          text: 'Luas',
+          textColor: SegitiaLuas.gColor,
           onTap: () {
             ModalPopUp.show(
               context,
-              modalPopUp: BasicModal(context, modal: Penjumlahan()),
-            );
-          },
-        ),
-        PageMenuTileModel(
-          imageAsset: Pengurangan.gImageAsset,
-          text: 'Pengurangan',
-          textColor: Pengurangan.gColor,
-          onTap: () {
-            ModalPopUp.show(
-              context,
-              modalPopUp: BasicModal(context, modal: Pengurangan()),
-            );
-          },
-        ),
-        PageMenuTileModel(
-          imageAsset: Perkalian.gImageAsset,
-          text: 'Perkalian',
-          textColor: Perkalian.gColor,
-          onTap: () {
-            ModalPopUp.show(
-              context,
-              modalPopUp: BasicModal(context, modal: Perkalian()),
-            );
-          },
-        ),
-        PageMenuTileModel(
-          imageAsset: Pembagian.gImageAsset,
-          text: 'Pembagian',
-          textColor: Pembagian.gColor,
-          onTap: () {
-            ModalPopUp.show(
-              context,
-              modalPopUp: BasicModal(context, modal: Pembagian()),
-            );
-          },
-        ),
-        PageMenuTileModel(
-          imageAsset: Perpangkatan.gImageAsset,
-          text: 'Perpangkatan',
-          textColor: Perpangkatan.gColor,
-          onTap: () {
-            ModalPopUp.show(
-              context,
-              modalPopUp: BasicModal(context, modal: Perpangkatan()),
-            );
-          },
-        ),
-        PageMenuTileModel(
-          imageAsset: Modulus.gImageAsset,
-          text: 'Modulus',
-          textColor: Modulus.gColor,
-          onTap: () {
-            ModalPopUp.show(
-              context,
-              modalPopUp: BasicModal(context, modal: Modulus()),
+              modalPopUp: BasicModal(context, modal: SegitiaLuas()),
             );
           },
         ),
@@ -117,7 +57,7 @@ class _AritmatikaState extends State<Aritmatika> {
             child: Column(
               children: [
                 Hero(
-                  tag: 'Aritmatika',
+                  tag: 'Segitiga',
                   child: Material(
                     type: MaterialType.transparency,
                     child: Container(
@@ -126,7 +66,7 @@ class _AritmatikaState extends State<Aritmatika> {
                       margin: const EdgeInsets.only(bottom: 0, left: 10, right: 10),
                       clipBehavior: Clip.none,
                       decoration: BoxDecoration(
-                        color: const Color(0xff252526),
+                        color: const Color(0xff3c3c3c),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Stack(
@@ -134,7 +74,7 @@ class _AritmatikaState extends State<Aritmatika> {
                         alignment: AlignmentDirectional.center,
                         children: [
                           Image(
-                            image: AssetImage('assets/images/aritmatika.png'),
+                            image: AssetImage('assets/images/bangun_datar.png'),
                             height: (MediaQuery.of(context).size.height * 0.9 / 4),
                             fit: BoxFit.contain,
                           ),
@@ -143,7 +83,7 @@ class _AritmatikaState extends State<Aritmatika> {
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.fastOutSlowIn,
                             child: Text(
-                              'Aritmatika',
+                              'Segitiga',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -166,7 +106,7 @@ class _AritmatikaState extends State<Aritmatika> {
                     child: Theme(
                       data: ThemeData(accentColor: const Color(0xff252526)),
                       child: SingleChildScrollView(
-                        child: PageMenuTiles(tileData: _menuData),
+                        child: PageMenuTilesTextOnly(tileData: _menuData, isSecond: true),
                       ),
                     ),
                   ),

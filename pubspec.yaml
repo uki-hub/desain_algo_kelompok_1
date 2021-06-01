@@ -30,8 +30,6 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # pub.dev
-  # animated_splash_screen: ^1.1.0
-  # concentric_transition: ^1.0.1+1
   page_transition: ^2.0.2
 
 dev_dependencies:
@@ -51,11 +49,20 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/background_ligth.jpg
-    - assets/images/background_dark.jpg
     - assets/images/aritmatika.png
     - assets/images/bangun_datar.png
-    - assets/images/bangun_datar_1.png
+
+    # aritmatika
+    - assets/images/aritmatika/penjumlahan.png
+    - assets/images/aritmatika/pengurangan.png
+    - assets/images/aritmatika/pembagian.png
+    - assets/images/aritmatika/perkalian.png
+    - assets/images/aritmatika/modulus.png
+    - assets/images/aritmatika/perpangkatan.png
+
+    # bangun datar
+    - assets/images/rumus/luas_segitiga.jpg
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

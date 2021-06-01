@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
 
-class PageMenuTiles extends StatelessWidget {
+class PageMenuTilesTextOnly extends StatelessWidget {
   final List<PageMenuTileModel> tileData;
   final bool isSecond;
 
-
-  const PageMenuTiles({Key? key, required this.tileData, this.isSecond: false}) : super(key: key);
+  const PageMenuTilesTextOnly({Key? key, required this.tileData, this.isSecond: false}) : super(key: key);
 
   Widget _buildCard(context, PageMenuTileModel tile) {
     return Expanded(
@@ -16,19 +15,9 @@ class PageMenuTiles extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
           color: isSecond ? const Color(0xff494949) : const Color(0xff3c3c3c),
           child: Center(
-              child: Flex(
-            direction: Axis.vertical,
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: ((MediaQuery.of(context).size.height * 0.9 / 4) + 25) * 0.7,
-                child: Image(
-                  image: AssetImage(tile.imageAsset!),
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Text(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+              child: Text(
                 tile.text,
                 style: TextStyle(
                   color: tile.textColor,
@@ -36,9 +25,9 @@ class PageMenuTiles extends StatelessWidget {
                   letterSpacing: 1.5,
                   fontSize: (MediaQuery.of(context).size.height * 0.9 / 4) * 0.1,
                 ),
-              )
-            ],
-          )),
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -61,15 +50,11 @@ class PageMenuTiles extends StatelessWidget {
         }
 
         result.add(
-          Container(
-            width: double.infinity,
-            height: (MediaQuery.of(context).size.height * 0.9 / 4) + 25,
-            child: Row(
-              children: [
-                _buildCard(context, firstData),
-                if (secondData != null) _buildCard(context, secondData),
-              ],
-            ),
+          Row(
+            children: [
+              _buildCard(context, firstData),
+              if (secondData != null) _buildCard(context, secondData),
+            ],
           ),
         );
       }

@@ -6,6 +6,7 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(textSelectionTheme: TextSelectionThemeData(selectionHandleColor: const Color(0xff3C3C3C))),
       title: 'Aritmatika dan Bangun Datar',
       onGenerateRoute: (settings) {
         switch (settings.name) {

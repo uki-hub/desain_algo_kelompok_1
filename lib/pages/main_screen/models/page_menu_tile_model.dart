@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 
 class PageMenuTileModel {
-  final Widget icon;
+  final String? imageAsset;
   final String text;
-  final Color backgroundColor;
+  final Color textColor;
   final VoidCallback onTap;
 
   const PageMenuTileModel({
-    required this.icon,
+    this.imageAsset,
     required this.text,
-    required this.backgroundColor,
+    required this.textColor,
     required this.onTap,
   });
 }
