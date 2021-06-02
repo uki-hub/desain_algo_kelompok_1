@@ -6,7 +6,7 @@ import 'package:kelompok_1/extensions/double.dart';
 
 class Modulus extends StatefulWidget implements BaseBasicModal {
   static const gColor = const Color(0xff957BF1);
-  static const gImageAsset = 'assets/images/modulus.png';
+  static const gImageAsset = 'assets/images/aritmatika/modulus.png';
 
   Modulus({Key? key}) : super(key: key);
 
@@ -127,7 +127,7 @@ class _ModulusState extends State<Modulus> {
               onTap: () {
                 setState(() => _submitted = true);
                 if (_formKey.currentState!.validate()) {
-                  FocusScope.of(context).requestFocus();
+                  FocusScope.of(context).unfocus();
                   _formKey.currentState!.save();
                   setState(() {
                     _submitted = false;

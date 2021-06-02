@@ -6,7 +6,7 @@ import 'package:kelompok_1/extensions/double.dart';
 
 class Pembagian extends StatefulWidget implements BaseBasicModal {
   static const gColor = const Color(0xff008000);
-  static const gImageAsset = 'assets/images/pembagian.png';
+  static const gImageAsset = 'assets/images/aritmatika/pembagian.png';
   
   Pembagian({Key? key}) : super(key: key);
 
@@ -127,7 +127,7 @@ class _PembagianState extends State<Pembagian> {
               onTap: () {
                 setState(() => _submitted = true);
                 if (_formKey.currentState!.validate()) {
-                  FocusScope.of(context).requestFocus();
+                  FocusScope.of(context).unfocus();
                   _formKey.currentState!.save();
                   setState(() {
                     _submitted = false;

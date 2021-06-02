@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/lingkaran/lingkaran.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/persegi/persegi.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/persegi_panjang/persegi_panjang.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/segitiga/segitiga.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles_second.dart';
 import 'package:page_transition/page_transition.dart';
@@ -19,6 +22,39 @@ class _BangunDatarState extends State<BangunDatar> {
           onTap: () {
             Navigator.of(context).push(PageTransition(
               child: Segitiga(),
+              type: PageTransitionType.fade,
+            ));
+          },
+        ),
+        PageMenuTileModel(
+          imageAsset: 'assets/images/bangun_datar.png',
+          text: 'Persegi',
+          textColor: Colors.white,
+          onTap: () {
+            Navigator.of(context).push(PageTransition(
+              child: Persegi(),
+              type: PageTransitionType.fade,
+            ));
+          },
+        ),
+        PageMenuTileModel(
+          imageAsset: 'assets/images/bangun_datar.png',
+          text: 'Persegi Panjang',
+          textColor: Colors.white,
+          onTap: () {
+            Navigator.of(context).push(PageTransition(
+              child: PersegiPanjang(),
+              type: PageTransitionType.fade,
+            ));
+          },
+        ),
+        PageMenuTileModel(
+          imageAsset: 'assets/images/bangun_datar.png',
+          text: 'Lingkaran',
+          textColor: Colors.white,
+          onTap: () {
+            Navigator.of(context).push(PageTransition(
+              child: Lingkaran(),
               type: PageTransitionType.fade,
             ));
           },

@@ -6,7 +6,7 @@ import 'package:kelompok_1/extensions/double.dart';
 
 class Penjumlahan extends StatefulWidget implements BaseBasicModal {
   static const gColor = const Color(0xffffaa00);
-  static const gImageAsset = 'assets/images/penjumlahan.png';
+  static const gImageAsset = 'assets/images/aritmatika/penjumlahan.png';
 
   Penjumlahan({Key? key}) : super(key: key);
 
@@ -127,7 +127,7 @@ class _PenjumlahanState extends State<Penjumlahan> {
               onTap: () {
                 setState(() => _submitted = true);
                 if (_formKey.currentState!.validate()) {
-                  FocusScope.of(context).requestFocus();
+                  FocusScope.of(context).unfocus();
                   _formKey.currentState!.save();
                   setState(() {
                     _submitted = false;

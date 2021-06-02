@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
-import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/segitiga/rumus/keliling.dart';
-import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/segitiga/rumus/luas.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/persegi/rumus/luas.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/persegi/rumus/keliling.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/basic_modal.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles_text_only.dart';
 import 'package:kelompok_1/widgets/modal_pop_up.dart';
 
-class Segitiga extends StatefulWidget {
+class Persegi extends StatefulWidget {
   @override
-  _SegitigaState createState() => _SegitigaState();
+  _PersegiState createState() => _PersegiState();
 }
 
-class _SegitigaState extends State<Segitiga> {
+class _PersegiState extends State<Persegi> {
   bool _isDone = false;
   List<PageMenuTileModel> get _menuData => [
         PageMenuTileModel(
           text: 'Luas',
-          textColor: SegitigaLuas.gColor,
-          onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: SegitigaLuas())),
+          textColor: PersegiLuas.gColor,
+          onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: PersegiLuas())),
         ),
         PageMenuTileModel(
           text: 'Keliling',
-          textColor: SegitigaLuas.gColor,
-          onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: SegitigaKeliling())),
+          textColor: PersegiLuas.gColor,
+          onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: PersegiKeliling())),
         ),
       ];
 
@@ -57,7 +57,7 @@ class _SegitigaState extends State<Segitiga> {
             child: Column(
               children: [
                 Hero(
-                  tag: 'Segitiga',
+                  tag: 'Persegi',
                   child: Material(
                     type: MaterialType.transparency,
                     child: Container(
@@ -83,7 +83,7 @@ class _SegitigaState extends State<Segitiga> {
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.fastOutSlowIn,
                             child: Text(
-                              'Segitiga',
+                              'Persegi',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

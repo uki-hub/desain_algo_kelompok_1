@@ -6,7 +6,7 @@ import 'package:kelompok_1/extensions/double.dart';
 
 class Perkalian extends StatefulWidget implements BaseBasicModal {
   static const gColor = const Color(0xff80007E);
-  static const gImageAsset = 'assets/images/perkalian.png';
+  static const gImageAsset = 'assets/images/aritmatika/perkalian.png';
 
   Perkalian({Key? key}) : super(key: key);
 
@@ -127,7 +127,7 @@ class _PerkalianState extends State<Perkalian> {
               onTap: () {
                 setState(() => _submitted = true);
                 if (_formKey.currentState!.validate()) {
-                  FocusScope.of(context).requestFocus();
+                  FocusScope.of(context).unfocus();
                   _formKey.currentState!.save();
                   setState(() {
                     _submitted = false;

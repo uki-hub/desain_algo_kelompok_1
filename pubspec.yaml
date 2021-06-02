@@ -60,8 +60,39 @@ flutter:
     - assets/images/aritmatika/modulus.png
     - assets/images/aritmatika/perpangkatan.png
 
-    # bangun datar
+    # segitiga
     - assets/images/rumus/luas_segitiga.jpg
+    - assets/images/rumus/keliling_segitiga.jpg
+    - assets/images/rumus/alas_segitiga.jpg
+    - assets/images/rumus/tinggi_segitiga.jpg
+
+    # persegi
+    - assets/images/rumus/luas_persegi.jpg
+    - assets/images/rumus/keliling_persegi.jpg
+
+    # persegi_panjang
+    - assets/images/rumus/luas_persegi_panjang.jpg
+    - assets/images/rumus/keliling_persegi_panjang.jpg
+
+    # jajar_genjang
+    - assets/images/rumus/luas_jajar_genjang.jpg
+    - assets/images/rumus/keliling_jajar_genjang.jpg
+
+    # layang_layang
+    - assets/images/rumus/luas_layang_layang.jpg
+    - assets/images/rumus/keliling_layang_layang.jpg
+
+    # lingkaran
+    - assets/images/rumus/luas_lingkaran.jpg
+    - assets/images/rumus/keliling_lingkaran.jpg
+
+    # trapesium
+    - assets/images/rumus/luas_trapesium.jpg
+    - assets/images/rumus/keliling_trapesium.jpg
+
+    # belah_ketupat
+    - assets/images/rumus/luas_belah_ketupat.jpg
+    - assets/images/rumus/keliling_belah_ketupat.jpg
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

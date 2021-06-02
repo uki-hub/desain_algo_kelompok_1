@@ -2,26 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/abstracts/base_basic_modal.dart';
+import 'package:kelompok_1/common/pankat.dart';
 import 'package:kelompok_1/widgets/custom_button.dart';
 import 'package:kelompok_1/widgets/custom_form_text_number_field.dart';
 import 'package:kelompok_1/extensions/double.dart';
 
-const _listPankat = {
-  '0': '⁰',
-  '1': '¹',
-  '2': '²',
-  '3': '³',
-  '4': '⁴',
-  '5': '⁵',
-  '6': '⁶',
-  '7': '⁷',
-  '8': '⁸',
-  '9': '⁹',
-};
-
 class Perpangkatan extends StatefulWidget implements BaseBasicModal {
   static const gColor = const Color(0xffDAA520);
-  static const gImageAsset = 'assets/images/perpangkatan.png';
+  static const gImageAsset = 'assets/images/aritmatika/perpangkatan.png';
 
   Perpangkatan({Key? key}) : super(key: key);
 
@@ -50,7 +38,7 @@ class _PerpangkatanState extends State<Perpangkatan> {
   bool _submitted = false;
 
   String _toPangkat(Characters chars) {
-    return chars.map((e) => _listPankat[e]).join();
+    return chars.map((e) => pangkat[e]).join();
   }
 
   String _penjelasanDetail(double a1, double a2) {
@@ -165,7 +153,7 @@ class _PerpangkatanState extends State<Perpangkatan> {
               onTap: () {
                 setState(() => _submitted = true);
                 if (_formKey.currentState!.validate()) {
-                  FocusScope.of(context).requestFocus();
+                  FocusScope.of(context).unfocus();
                   _formKey.currentState!.save();
                   setState(() {
                     _submitted = false;
