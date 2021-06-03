@@ -60,6 +60,16 @@ flutter:
     - assets/images/aritmatika/modulus.png
     - assets/images/aritmatika/perpangkatan.png
 
+    # bangun_datar
+    - assets/images/bangun_datar/segitiga.png
+    - assets/images/bangun_datar/persegi.png
+    - assets/images/bangun_datar/persegi_panjang.png
+    - assets/images/bangun_datar/jajar_genjang.png
+    - assets/images/bangun_datar/layang_layang.png
+    - assets/images/bangun_datar/lingkaran.png
+    - assets/images/bangun_datar/trapesium.png
+    - assets/images/bangun_datar/belah_ketupat.png
+
     # segitiga
     - assets/images/rumus/luas_segitiga.jpg
     - assets/images/rumus/keliling_segitiga.jpg

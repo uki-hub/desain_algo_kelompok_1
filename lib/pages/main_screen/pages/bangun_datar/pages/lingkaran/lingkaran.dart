@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
-import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/lingkaran/rumus/keliling.dart';
-import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/lingkaran/rumus/luas.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/widgets/rumus_builder.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/basic_modal.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles_text_only.dart';
 import 'package:kelompok_1/widgets/modal_pop_up.dart';
+
+import 'rumus.dart';
 
 class Lingkaran extends StatefulWidget {
   @override
@@ -13,18 +14,20 @@ class Lingkaran extends StatefulWidget {
 
 class _LingkaranState extends State<Lingkaran> {
   bool _isDone = false;
-  List<PageMenuTileModel> get _menuData => [
-        PageMenuTileModel(
-          text: 'Luas',
-          textColor: LingkaranLuas.gColor,
-          onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: LingkaranLuas())),
+  
+  List<PageMenuTileModel> get _menuData => rumus.entries
+      .map(
+        (r) => PageMenuTileModel(
+          text: r.key,
+          textColor: r.value.color,
+          onTap: () => ModalPopUp.show(
+            context,
+            modalPopUp: BasicModal(context, modal: RumusBuilder(rumus[r.key]!)),
+          ),
         ),
-        PageMenuTileModel(
-          text: 'Keliling',
-          textColor: LingkaranKeliling.gColor,
-          onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: LingkaranKeliling())),
-        ),
-      ];
+      )
+      .toList();
+
 
   Future<void> delay() async {
     await Future.delayed(
@@ -74,7 +77,7 @@ class _LingkaranState extends State<Lingkaran> {
                         alignment: AlignmentDirectional.center,
                         children: [
                           Image(
-                            image: AssetImage('assets/images/bangun_datar.png'),
+                            image: AssetImage('assets/images/bangun_datar/lingkaran.png'),
                             height: (MediaQuery.of(context).size.height * 0.9 / 4),
                             fit: BoxFit.contain,
                           ),

@@ -15,6 +15,7 @@ class CustomFormNumberField extends StatefulWidget {
   final void Function(String?)? onChanged;
   final void Function(String?)? onSaved;
   final double? bottomMargin;
+  final double? gap;
 
   const CustomFormNumberField({
     Key? key,
@@ -23,6 +24,7 @@ class CustomFormNumberField extends StatefulWidget {
     this.onValidate,
     this.onChanged,
     this.onSaved,
+    this.gap,
     this.bottomMargin,
   }) : super(key: key);
 
@@ -45,7 +47,7 @@ class _CustomFormNumberFieldState extends State<CustomFormNumberField> {
         ),
       ),
       child: Container(
-        margin: EdgeInsets.only(bottom: widget.bottomMargin ?? 0),
+        margin: EdgeInsets.only(bottom: widget.bottomMargin ?? 0, right: widget.gap ?? 0),
         child: TextFormField(
           textAlign: TextAlign.center,
           keyboardType: TextInputType.number,

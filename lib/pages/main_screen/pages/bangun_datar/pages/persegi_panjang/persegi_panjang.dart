@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
-import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/persegi_panjang/rumus/luas.dart';
-import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/persegi_panjang/rumus/keliling.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/widgets/rumus_builder.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/basic_modal.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles_text_only.dart';
 import 'package:kelompok_1/widgets/modal_pop_up.dart';
+
+import 'rumus.dart';
 
 class PersegiPanjang extends StatefulWidget {
   @override
@@ -13,18 +14,18 @@ class PersegiPanjang extends StatefulWidget {
 
 class _PersegiPanjangState extends State<PersegiPanjang> {
   bool _isDone = false;
-  List<PageMenuTileModel> get _menuData => [
-        PageMenuTileModel(
-          text: 'Luas',
-          textColor: PersegiPanjangLuas.gColor,
-          onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: PersegiPanjangLuas())),
+  List<PageMenuTileModel> get _menuData => rumus.entries
+      .map(
+        (r) => PageMenuTileModel(
+          text: r.key,
+          textColor: r.value.color,
+          onTap: () => ModalPopUp.show(
+            context,
+            modalPopUp: BasicModal(context, modal: RumusBuilder(rumus[r.key]!)),
+          ),
         ),
-        PageMenuTileModel(
-          text: 'Keliling',
-          textColor: PersegiPanjangKeliling.gColor,
-          onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: PersegiPanjangKeliling())),
-        ),
-      ];
+      )
+      .toList();
 
   Future<void> delay() async {
     await Future.delayed(
@@ -74,7 +75,7 @@ class _PersegiPanjangState extends State<PersegiPanjang> {
                         alignment: AlignmentDirectional.center,
                         children: [
                           Image(
-                            image: AssetImage('assets/images/bangun_datar.png'),
+                            image: AssetImage('assets/images/bangun_datar/persegi_panjang.png'),
                             height: (MediaQuery.of(context).size.height * 0.9 / 4),
                             fit: BoxFit.contain,
                           ),

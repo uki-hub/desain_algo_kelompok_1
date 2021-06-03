@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/belah_ketupat/belah_ketupat.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/jajar_genjang/jajar_genjang.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/layang_layang/layang_layang.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/lingkaran/lingkaran.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/persegi/persegi.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/persegi_panjang/persegi_panjang.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/segitiga/segitiga.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/trapesium/trapesium.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles_second.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -16,7 +20,7 @@ class _BangunDatarState extends State<BangunDatar> {
   bool _isDone = false;
   List<PageMenuTileModel> get _menuData => [
         PageMenuTileModel(
-          imageAsset: 'assets/images/bangun_datar.png',
+          imageAsset: 'assets/images/bangun_datar/segitiga.png',
           text: 'Segitiga',
           textColor: Colors.white,
           onTap: () {
@@ -27,7 +31,7 @@ class _BangunDatarState extends State<BangunDatar> {
           },
         ),
         PageMenuTileModel(
-          imageAsset: 'assets/images/bangun_datar.png',
+          imageAsset: 'assets/images/bangun_datar/persegi.png',
           text: 'Persegi',
           textColor: Colors.white,
           onTap: () {
@@ -38,7 +42,7 @@ class _BangunDatarState extends State<BangunDatar> {
           },
         ),
         PageMenuTileModel(
-          imageAsset: 'assets/images/bangun_datar.png',
+          imageAsset: 'assets/images/bangun_datar/persegi_panjang.png',
           text: 'Persegi Panjang',
           textColor: Colors.white,
           onTap: () {
@@ -49,12 +53,56 @@ class _BangunDatarState extends State<BangunDatar> {
           },
         ),
         PageMenuTileModel(
-          imageAsset: 'assets/images/bangun_datar.png',
+          imageAsset: 'assets/images/bangun_datar/lingkaran.png',
           text: 'Lingkaran',
           textColor: Colors.white,
           onTap: () {
             Navigator.of(context).push(PageTransition(
               child: Lingkaran(),
+              type: PageTransitionType.fade,
+            ));
+          },
+        ),
+        PageMenuTileModel(
+          imageAsset: 'assets/images/bangun_datar/jajar_genjang.png',
+          text: 'Jajar Genjang',
+          textColor: Colors.white,
+          onTap: () {
+            Navigator.of(context).push(PageTransition(
+              child: JajarGenjang(),
+              type: PageTransitionType.fade,
+            ));
+          },
+        ),
+        PageMenuTileModel(
+          imageAsset: 'assets/images/bangun_datar/trapesium.png',
+          text: 'Trapesium',
+          textColor: Colors.white,
+          onTap: () {
+            Navigator.of(context).push(PageTransition(
+              child: Trapesium(),
+              type: PageTransitionType.fade,
+            ));
+          },
+        ),
+        PageMenuTileModel(
+          imageAsset: 'assets/images/bangun_datar/layang_layang.png',
+          text: 'Layang Layang',
+          textColor: Colors.white,
+          onTap: () {
+            Navigator.of(context).push(PageTransition(
+              child: LayangLayang(),
+              type: PageTransitionType.fade,
+            ));
+          },
+        ),
+        PageMenuTileModel(
+          imageAsset: 'assets/images/bangun_datar/belah_ketupat.png',
+          text: 'Belah Ketupat',
+          textColor: Colors.white,
+          onTap: () {
+            Navigator.of(context).push(PageTransition(
+              child: BelahKetupat(),
               type: PageTransitionType.fade,
             ));
           },

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
-import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/models/rumus_builder_model.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/widgets/rumus_builder.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/basic_modal.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles_text_only.dart';
@@ -8,15 +7,13 @@ import 'package:kelompok_1/widgets/modal_pop_up.dart';
 
 import 'rumus.dart';
 
-
-class Segitiga extends StatefulWidget {
+class BelahKetupat extends StatefulWidget {
   @override
-  _SegitigaState createState() => _SegitigaState();
+  _BelahKetupatState createState() => _BelahKetupatState();
 }
 
-class _SegitigaState extends State<Segitiga> {
+class _BelahKetupatState extends State<BelahKetupat> {
   bool _isDone = false;
-
   List<PageMenuTileModel> get _menuData => rumus.entries
       .map(
         (r) => PageMenuTileModel(
@@ -61,7 +58,7 @@ class _SegitigaState extends State<Segitiga> {
             child: Column(
               children: [
                 Hero(
-                  tag: 'Segitiga',
+                  tag: 'Belah Ketupat',
                   child: Material(
                     type: MaterialType.transparency,
                     child: Container(
@@ -78,7 +75,7 @@ class _SegitigaState extends State<Segitiga> {
                         alignment: AlignmentDirectional.center,
                         children: [
                           Image(
-                            image: AssetImage('assets/images/bangun_datar/segitiga.png'),
+                            image: AssetImage('assets/images/bangun_datar/belah_ketupat.png'),
                             height: (MediaQuery.of(context).size.height * 0.9 / 4),
                             fit: BoxFit.contain,
                           ),
@@ -87,7 +84,7 @@ class _SegitigaState extends State<Segitiga> {
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.fastOutSlowIn,
                             child: Text(
-                              'Segitiga',
+                              'Belah Ketupat',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

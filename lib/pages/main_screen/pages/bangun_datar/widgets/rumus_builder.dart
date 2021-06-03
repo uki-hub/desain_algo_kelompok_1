@@ -10,15 +10,13 @@ import 'package:page_transition/page_transition.dart';
 class RumusBuilder extends StatefulWidget implements BaseBasicModal {
   final RumusBuilderModel model;
 
-  static const gColor = const Color(0xff957BF1);
-
-  const RumusBuilder({Key? key, required this.model}) : super(key: key);
+  const RumusBuilder(this.model, {Key? key}) : super(key: key);
 
   @override
   String? get imageAsset => null;
 
   @override
-  Color get color => gColor;
+  Color get color => model.color;
 
   @override
   String get title => model.title;
@@ -32,7 +30,7 @@ class _RumusBuilderState extends State<RumusBuilder> {
 
   final _formKey = GlobalKey<FormState>();
 
-  TextStyle get _penjelasanStyle => TextStyle(color: const Color(0xffbfbfbf), fontSize: (MediaQuery.of(context).size.height * 0.1) * 0.18);
+  TextStyle get _penjelasanStyle => TextStyle(color: const Color(0xffbfbfbf), fontSize: (MediaQuery.of(context).size.height * 0.1) * 0.18, height: 1.5);
   TextStyle get _penjelasanStyleHighlighted => _penjelasanStyle.copyWith(fontWeight: FontWeight.bold);
 
   double? _hasil;
@@ -85,6 +83,7 @@ class _RumusBuilderState extends State<RumusBuilder> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ...widget.model.rumusText(widget.model.angka, _hasil!, _penjelasanStyle, _penjelasanStyleHighlighted),
+          SizedBox(height: 5),
           Text('Rumus', style: _penjelasanStyleHighlighted),
           _rumusImage,
         ],
@@ -129,18 +128,36 @@ class _RumusBuilderState extends State<RumusBuilder> {
   }
 
   Widget _buildFormInput() {
-    return Column(
-      children: [
-        for (var i = 0; i < widget.model.angka.length; i++)
-          CustomFormNumberField(
-            color: widget.color,
-            hintText: widget.model.angkaTextHint[i],
-            onChanged: _validateOnChanged,
-            onSaved: (v) => widget.model.angka[i] = double.parse(v!),
-            bottomMargin: i == widget.model.angka.length - 1 ? null : 10,
-          ),
-      ],
-    );
+    if (widget.model.angka.length == 2) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (var i = 0; i < widget.model.angka.length; i++)
+            Expanded(
+              child: CustomFormNumberField(
+                color: widget.color,
+                hintText: widget.model.angkaTextHint[i],
+                onChanged: _validateOnChanged,
+                onSaved: (v) => widget.model.angka[i] = double.parse(v!),
+                gap: i == widget.model.angka.length - 1 ? null : 10,
+              ),
+            ),
+        ],
+      );
+    } else {
+      return Column(
+        children: [
+          for (var i = 0; i < widget.model.angka.length; i++)
+            CustomFormNumberField(
+              color: widget.color,
+              hintText: widget.model.angkaTextHint[i],
+              onChanged: _validateOnChanged,
+              onSaved: (v) => widget.model.angka[i] = double.parse(v!),
+              bottomMargin: i == widget.model.angka.length - 1 ? null : 10,
+            ),
+        ],
+      );
+    }
   }
 
   @override
