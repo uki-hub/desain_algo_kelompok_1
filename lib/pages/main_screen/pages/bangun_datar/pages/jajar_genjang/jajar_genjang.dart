@@ -58,7 +58,7 @@ class _JajarGenjangState extends State<JajarGenjang> {
             child: Column(
               children: [
                 Hero(
-                  tag: 'Persegi Panjang',
+                  tag: 'Jajar Genjang',
                   child: Material(
                     type: MaterialType.transparency,
                     child: Container(
