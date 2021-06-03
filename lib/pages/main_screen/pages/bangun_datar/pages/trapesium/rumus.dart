@@ -26,4 +26,25 @@ final rumus = {
       Text('${angka[0].toPlainString()} + ${angka[1].toPlainString()} + ${angka[2].toPlainString()} + ${angka[3].toPlainString()} = ${hasil.toPlainString()}', style: reg),
     ],
   ),
+  'Tinggi': RumusBuilderModel(
+    title: 'Tinggi Trapesium',
+    color: Colors.yellow,
+    angka: [0, 0, 0],
+    angkaTextHint: ['Luas', 'Sisi a', 'Sisi b'],
+    hitung: (angka) => (2 * angka[0]) / (angka[1] + angka[2]),
+    rumusText: (angka, hasil, reg, bold) => [
+      Text('((2) x ${angka[0].toPlainString()}) : (${angka[1].toPlainString()} + ${angka[2].toPlainString()})', style: reg),
+      Text('(${(2 * angka[0]).toPlainString()}) : (${(angka[1] + angka[2]).toPlainString()} = ${hasil.toPlainString()})', style: reg),
+    ],
+  ),
+  'Sisi': RumusBuilderModel(
+    title: 'Sisi Trapesium',
+    color: Colors.yellow,
+    angka: [0, 0, 0, 0],
+    angkaTextHint: ['Keliling', 'Sisi a', 'Sisi b', 'Sisi c'],
+    hitung: (angka) => angka[0] - angka[1] - angka[2] - angka[3],
+    rumusText: (angka, hasil, reg, bold) => [
+      Text('${angka[0].toPlainString()} - ${angka[1].toPlainString()} - ${angka[2].toPlainString()} - ${angka[3].toPlainString()} = ${hasil.toPlainString()})', style: reg),
+    ],
+  ),
 };

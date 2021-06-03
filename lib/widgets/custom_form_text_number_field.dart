@@ -55,9 +55,6 @@ class _CustomFormNumberFieldState extends State<CustomFormNumberField> {
             fontSize: (MediaQuery.of(context).size.height * 0.1) * 0.25,
             fontWeight: FontWeight.w800,
           ),
-          inputFormatters: [
-            //TODO: PR
-          ],
           decoration: InputDecoration(
             hintText: widget.hintText,
             hintMaxLines: _hasValue ? 1 : 3,

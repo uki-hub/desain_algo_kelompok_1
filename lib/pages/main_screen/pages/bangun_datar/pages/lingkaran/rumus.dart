@@ -31,4 +31,24 @@ final rumus = {
       Text('π x (${(angka[0] * 2).toPlainString()}) = ${hasil.toPlainString()}', style: bold),
     ],
   ),
+  'Diameter': RumusBuilderModel(
+    title: 'Diameter Lingkaran',
+    color: Colors.yellow,
+    angka: [0],
+    angkaTextHint: ['Jari jari'],
+    hitung: (angka) => 2 * angka[0],
+    rumusText: (angka, hasil, reg, bold) => [
+      Text('(2) x ${angka[0].toPlainString()} = ${hasil.toPlainString()}', style: bold),
+    ],
+  ),
+  'Jari jari': RumusBuilderModel(
+    title: 'Jari jari Lingkaran',
+    color: Colors.yellow,
+    angka: [0],
+    angkaTextHint: ['Diameter'],
+    hitung: (angka) => angka[0] / 2,
+    rumusText: (angka, hasil, reg, bold) => [
+      Text('${angka[0].toPlainString()} / (2) = ${hasil.toPlainString()}', style: bold),
+    ],
+  ),
 };

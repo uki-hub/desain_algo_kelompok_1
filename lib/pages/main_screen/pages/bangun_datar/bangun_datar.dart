@@ -149,7 +149,7 @@ class _BangunDatarState extends State<BangunDatar> {
                       margin: const EdgeInsets.only(bottom: 0, left: 10, right: 10),
                       clipBehavior: Clip.none,
                       decoration: BoxDecoration(
-                        color: const Color(0xff252526),
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Stack(
@@ -186,11 +186,8 @@ class _BangunDatarState extends State<BangunDatar> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Theme(
-                      data: ThemeData(accentColor: const Color(0xff252526)),
-                      child: SingleChildScrollView(
-                        child: PageMenuTilesCardSecond(tileData: _menuData),
-                      ),
+                    child: SingleChildScrollView(
+                      child: PageMenuTilesCardSecond(tileData: _menuData),
                     ),
                   ),
                 ),

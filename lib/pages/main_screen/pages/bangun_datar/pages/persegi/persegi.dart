@@ -18,6 +18,7 @@ class _PersegiState extends State<Persegi> {
   List<PageMenuTileModel> get _menuData => rumus.entries
       .map(
         (r) => PageMenuTileModel(
+          isSingleRow: r.value.isSingleRow,
           text: r.key,
           textColor: r.value.color,
           onTap: () => ModalPopUp.show(
@@ -106,7 +107,7 @@ class _PersegiState extends State<Persegi> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Theme(
-                      data: ThemeData(accentColor: const Color(0xff252526)),
+                      data: ThemeData(accentColor: Theme.of(context).primaryColor),
                       child: SingleChildScrollView(
                         child: PageMenuTilesTextOnly(tileData: _menuData, isSecond: true),
                       ),

@@ -26,4 +26,36 @@ final rumus = {
       Text('(4) x ${angka[0].toPlainString()} = ${hasil.toPlainString()}', style: bold),
     ],
   ),
+  'Sisi': RumusBuilderModel(
+    title: 'Sisi Belah Ketupat',
+    color: Colors.yellow,
+    angka: [0],
+    angkaTextHint: ['Keliling'],
+    hitung: (angka) => angka[0] / 4,
+    rumusText: (angka, hasil, reg, bold) => [
+      Text('${angka[0].toPlainString()} : (4) = ${hasil.toPlainString()}', style: bold),
+    ],
+  ),
+  'Diagonal 1': RumusBuilderModel(
+    isSingleRow: true,
+    title: 'Diagonal 1 Belah Ketupat',
+    color: Colors.yellow,
+    angka: [0, 0],
+    angkaTextHint: ['Luas', 'Diagonal 2'],
+    hitung: (angka) => 2 * angka[0] / angka[1],
+    rumusText: (angka, hasil, reg, bold) => [
+      Text('(2) x ${angka[0].toPlainString()} : ${angka[1].toPlainString()} = ${hasil.toPlainString()}', style: bold),
+    ],
+  ),
+  'Diagonal 2': RumusBuilderModel(
+    isSingleRow: true,
+    title: 'Diagonal 2 Belah Ketupat',
+    color: Colors.yellow,
+    angka: [0, 0],
+    angkaTextHint: ['Luas', 'Diagonal 1'],
+    hitung: (angka) => 2 * angka[0] / angka[1],
+    rumusText: (angka, hasil, reg, bold) => [
+      Text('(2) x ${angka[0].toPlainString()} : ${angka[1].toPlainString()} = ${hasil.toPlainString()}', style: bold),
+    ],
+  ),
 };

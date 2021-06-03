@@ -26,7 +26,7 @@ class RumusBuilder extends StatefulWidget implements BaseBasicModal {
 }
 
 class _RumusBuilderState extends State<RumusBuilder> {
-  String get _rumusImageAsset => widget.model.rumusImageAsset;
+  String? get _rumusImageAsset => widget.model.rumusImageAsset;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -47,7 +47,7 @@ class _RumusBuilderState extends State<RumusBuilder> {
         Navigator.of(context).push(
           PageTransition(
               child: FullscreenImage(
-                assetImage: _rumusImageAsset,
+                assetImage: _rumusImageAsset!,
               ),
               type: PageTransitionType.bottomToTop,
               duration: Duration(milliseconds: 200),
@@ -58,7 +58,7 @@ class _RumusBuilderState extends State<RumusBuilder> {
         width: double.infinity,
         height: MediaQuery.of(context).size.height / 4,
         child: Image(
-          image: AssetImage(_rumusImageAsset),
+          image: AssetImage(_rumusImageAsset!),
           fit: BoxFit.fill,
           errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
             return Column(
@@ -77,15 +77,19 @@ class _RumusBuilderState extends State<RumusBuilder> {
   }
 
   Widget get _rumusText {
+    final rumusImage = [
+      SizedBox(height: 5),
+      Text('Rumus', style: _penjelasanStyleHighlighted),
+      _rumusImage,
+    ];
+
     return Align(
       alignment: Alignment.centerLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ...widget.model.rumusText(widget.model.angka, _hasil!, _penjelasanStyle, _penjelasanStyleHighlighted),
-          SizedBox(height: 5),
-          Text('Rumus', style: _penjelasanStyleHighlighted),
-          _rumusImage,
+          if (_rumusImageAsset != null) ...rumusImage,
         ],
       ),
     );

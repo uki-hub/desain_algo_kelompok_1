@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kelompok_1/pages/main_screen/pages/artimatika/aritmatika.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/bangun_datar.dart';
 import 'package:kelompok_1/widgets/custom_button.dart';
@@ -53,34 +55,37 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _buildSubMenuTile({required IconData icon, required Color iconColor, required String text}) {
+  Widget _buildSubMenuTile({required IconData icon, required Color iconColor, required String text, VoidCallback? onTap}) {
     return Expanded(
-      child: Container(
-        margin: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          color: Color(0xff3c3c3c),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(height: (MediaQuery.of(context).size.height * 0.25) * 0.05),
-            Icon(
-              icon,
-              color: iconColor,
-              size: (MediaQuery.of(context).size.height * 0.25) * 0.45,
-            ),
-            SizedBox(height: (MediaQuery.of(context).size.height * 0.25) * 0.05),
-            Text(
-              text,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.grey[200],
-                fontWeight: FontWeight.bold,
-                fontSize: ((MediaQuery.of(context).size.height * 0.25) * 0.1),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          margin: EdgeInsets.all(5),
+          decoration: BoxDecoration(
+            color: Color(0xff3c3c3c),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: (MediaQuery.of(context).size.height * 0.25) * 0.05),
+              Icon(
+                icon,
+                color: iconColor,
+                size: (MediaQuery.of(context).size.height * 0.25) * 0.45,
               ),
-            ),
-          ],
+              SizedBox(height: (MediaQuery.of(context).size.height * 0.25) * 0.05),
+              Text(
+                text,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.grey[200],
+                  fontWeight: FontWeight.bold,
+                  fontSize: ((MediaQuery.of(context).size.height * 0.25) * 0.1),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -92,72 +97,74 @@ class _MainScreenState extends State<MainScreen> {
       child: Container(
         decoration: BoxDecoration(
           color: const Color(0xff333333),
-          // image: DecorationImage(
-          //   image: AssetImage("assets/images/background_dark.jpg"),
-          //   fit: BoxFit.cover,
-          // ),
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.9,
-                  width: double.infinity,
-                  child: Column(
-                    children: [
-                      _buildMainMenuTile(
-                        text: 'Aritmatika',
-                        imageAssetPath: 'assets/images/aritmatika.png',
-                        onTap: () {
-                          Navigator.of(context).push(PageTransition(
-                            child: Aritmatika(),
-                            type: PageTransitionType.fade,
-                          ));
-                        },
-                      ),
-                      _buildMainMenuTile(
-                        text: 'Bangun Datar',
-                        imageAssetPath: 'assets/images/bangun_datar.png',
-                        onTap: () {
-                          Navigator.of(context).push(PageTransition(
-                            child: BangunDatar(),
-                            type: PageTransitionType.fade,
-                          ));
-                        },
-                      ),
-                    ],
+          body: WillPopScope(
+            onWillPop: () async {
+              SystemNavigator.pop();
+              exit(0);
+            },
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.9,
+                    width: double.infinity,
+                    child: Column(
+                      children: [
+                        _buildMainMenuTile(
+                          text: 'Aritmatika',
+                          imageAssetPath: 'assets/images/aritmatika.png',
+                          onTap: () {
+                            Navigator.of(context).push(PageTransition(
+                              child: Aritmatika(),
+                              type: PageTransitionType.fade,
+                            ));
+                          },
+                        ),
+                        _buildMainMenuTile(
+                          text: 'Bangun Datar',
+                          imageAssetPath: 'assets/images/bangun_datar.png',
+                          onTap: () {
+                            Navigator.of(context).push(PageTransition(
+                              child: BangunDatar(),
+                              type: PageTransitionType.fade,
+                            ));
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 15),
-                Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.25,
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  child: Row(
-                    children: [
-                      _buildSubMenuTile(icon: Icons.settings_rounded, iconColor: Colors.grey, text: 'Pengaturan'),
-                      _buildSubMenuTile(icon: Icons.star_rounded, iconColor: Colors.amber[700]!, text: 'Beri Rating'),
-                      _buildSubMenuTile(icon: Icons.info_rounded, iconColor: Colors.lightBlue[200]!, text: 'Tentang Kami'),
-                    ],
+                  SizedBox(height: 15),
+                  Container(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: Row(
+                      children: [
+                        _buildSubMenuTile(icon: Icons.settings_rounded, iconColor: Colors.grey, text: 'Pengaturan', onTap: () => Navigator.of(context).pushNamed('/settings')),
+                        _buildSubMenuTile(icon: Icons.star_rounded, iconColor: Colors.amber[700]!, text: 'Beri Rating', onTap: () => Navigator.of(context).pushNamed('/beri_rating')),
+                        _buildSubMenuTile(icon: Icons.info_rounded, iconColor: Colors.lightBlue[200]!, text: 'Tentang Kami', onTap: () => Navigator.of(context).pushNamed('/about')),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 15),
-                Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: const Color(0xff323233),
-                    // borderRadius: BorderRadius.circular(10.0),
+                  SizedBox(height: 15),
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: const Color(0xff323233),
+                      // borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Text(
+                      '© ${DateTime.now().year} - Kelompok 1',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.grey[50]),
+                    ),
                   ),
-                  child: Text(
-                    '© ${DateTime.now().year} - Kelompok 1',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey[50]),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

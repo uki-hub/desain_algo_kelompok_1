@@ -19,7 +19,11 @@ List<Widget> tilesBuilder(
         secondData = null;
       } else {
         secondData = data.elementAt(i + 1);
-        i++;
+        if (secondData.isSingleRow) {
+          secondData = null;
+        } else {
+          i++;
+        }
       }
 
       result.add(

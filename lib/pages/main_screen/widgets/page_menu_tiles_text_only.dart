@@ -16,15 +16,22 @@ class PageMenuTilesTextOnly extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
           color: isSecond ? const Color(0xff494949) : const Color(0xff3c3c3c),
           child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-              child: Text(
-                tile.text,
-                style: TextStyle(
-                  color: tile.textColor,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.5,
-                  fontSize: (MediaQuery.of(context).size.height * 0.9 / 4) * 0.1,
+            child: SizedBox(
+              height: (MediaQuery.of(context).size.height / 10),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                child: Align(
+                  alignment: AlignmentDirectional.center,
+                  child: Text(
+                    tile.text,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: tile.textColor,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                      fontSize: (MediaQuery.of(context).size.height * 0.9 / 4) * 0.1,
+                    ),
+                  ),
                 ),
               ),
             ),

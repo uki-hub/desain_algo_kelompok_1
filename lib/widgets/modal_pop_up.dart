@@ -108,7 +108,7 @@ class _ModalPopUpState extends State<ModalPopUp> with SingleTickerProviderStateM
                   margin: const EdgeInsets.symmetric(horizontal: 40),
                   padding: const EdgeInsets.all(10.0),
                   decoration: ShapeDecoration(
-                    color: const Color(0xff252526),
+                    color: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
                   ),
                   child: Stack(
