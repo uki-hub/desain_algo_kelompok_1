@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/main_screen/models/page_menu_tile_model.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/models/rumus_builder_model.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/segitiga/rumus/keliling.dart';
 import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/pages/segitiga/rumus/luas.dart';
+import 'package:kelompok_1/pages/main_screen/pages/bangun_datar/widgets/rumus_builder.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/basic_modal.dart';
 import 'package:kelompok_1/pages/main_screen/widgets/page_menu_tiles_text_only.dart';
 import 'package:kelompok_1/widgets/modal_pop_up.dart';
+import 'package:kelompok_1/extensions/double.dart';
 
 class Segitiga extends StatefulWidget {
   @override
@@ -23,6 +26,26 @@ class _SegitigaState extends State<Segitiga> {
           text: 'Keliling',
           textColor: SegitigaLuas.gColor,
           onTap: () => ModalPopUp.show(context, modalPopUp: BasicModal(context, modal: SegitigaKeliling())),
+        ),
+        PageMenuTileModel(
+          text: 'Keliling pakai builder',
+          textColor: SegitigaLuas.gColor,
+          onTap: () => ModalPopUp.show(context,
+              modalPopUp: BasicModal(context,
+                  modal: RumusBuilder(
+                    model: RumusBuilderModel(
+                      title: 'Keliling Segitiga',
+                      color: Colors.yellow,
+                      angka: [0, 0, 0],
+                      angkaTextHint: ['Sisi 1', 'Sisi 2', 'Sisi 3'],
+                      hitung: (angka) => angka[0] + angka[1] + angka[2],
+                      rumusText: (angka, hasil, reg, bold) => [
+                        Text('${angka[0].toPlainString()} + ${angka[1].toPlainString()} + ${angka[2].toPlainString()} = ${hasil.toPlainString()}', style: reg),
+                        SizedBox(height: 5),
+                      ],
+                      rumusImageAsset: 'assets/images/rumus/keliling_segitiga.jpg',
+                    ),
+                  ))),
         ),
       ];
 
