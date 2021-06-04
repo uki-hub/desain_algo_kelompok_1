@@ -12,7 +12,7 @@ class BasicModal implements BaseModalPopUp {
   });
 
   @override
-  EdgeInsetsGeometry contentPadding = const EdgeInsets.all(10);
+  EdgeInsetsGeometry contentPadding = const EdgeInsets.symmetric(horizontal: 5, vertical: 5);
 
   @override
   double gapBetweenContentActions = 0;
@@ -26,11 +26,15 @@ class BasicModal implements BaseModalPopUp {
   @override
   Widget get title => Column(
         children: [
-          Text(
-            modal.title,
-            style: TextStyle(
-              fontSize: (MediaQuery.of(context).size.height * 0.1) * 0.3,
-              color: Colors.white,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal:(MediaQuery.of(context).size.height * 0.1) * 0.5),
+            child: Text(
+              modal.title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: (MediaQuery.of(context).size.height * 0.1) * 0.3,
+                color: Colors.white,
+              ),
             ),
           ),
           if (modal.imageAsset != null)

@@ -28,7 +28,6 @@ class _AritmatikaState extends State<Aritmatika> {
               modalPopUp: BasicModal(context, modal: Penjumlahan()),
             );
           },
-          isSingleRow: true
         ),
         PageMenuTileModel(
           imageAsset: Pengurangan.gImageAsset,

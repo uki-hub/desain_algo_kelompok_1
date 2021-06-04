@@ -62,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Container(
           margin: EdgeInsets.all(5),
           decoration: BoxDecoration(
-            color: Color(0xff3c3c3c),
+            color: const Color(0xff3c3c3c),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(

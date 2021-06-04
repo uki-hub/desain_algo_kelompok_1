@@ -77,11 +77,13 @@ class _RumusBuilderState extends State<RumusBuilder> {
   }
 
   Widget get _rumusText {
-    final rumusImage = [
-      SizedBox(height: 5),
-      Text('Rumus', style: _penjelasanStyleHighlighted),
-      _rumusImage,
-    ];
+    final rumusImage = _rumusImageAsset == null
+        ? []
+        : [
+            SizedBox(height: 5),
+            Text('Rumus', style: _penjelasanStyleHighlighted),
+            _rumusImage,
+          ];
 
     return Align(
       alignment: Alignment.centerLeft,
@@ -89,7 +91,7 @@ class _RumusBuilderState extends State<RumusBuilder> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ...widget.model.rumusText(widget.model.angka, _hasil!, _penjelasanStyle, _penjelasanStyleHighlighted),
-          if (_rumusImageAsset != null) ...rumusImage,
+          ...rumusImage,
         ],
       ),
     );

@@ -32,6 +32,7 @@ dependencies:
   # pub.dev
   page_transition: ^2.0.2
   flutter_launcher_icons: ^0.9.0
+  just_audio: ^0.7.5
 
 dev_dependencies:
   flutter_test:
@@ -60,9 +61,14 @@ flutter:
     - assets/icons/icon.png
     - assets/images/aritmatika.png
     - assets/images/bangun_datar.png
-    
+
+    # audio
+    - assets/audio/chill.mp3
+
     # internet
     - assets/gifs/spinning_seal.gif
+    - assets/images/photos/me.jpg
+    - assets/icons/anonym.png
 
     # aritmatika
     - assets/images/aritmatika/penjumlahan.png

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kelompok_1/pages/about/about.dart';
 import 'package:kelompok_1/pages/on_going/on_going.dart';
 import 'package:kelompok_1/pages/splash_screen/splash_screen.dart';
 
@@ -21,7 +22,7 @@ class LandingPage extends StatelessWidget {
           case '/beri_rating':
             return MaterialPageRoute(builder: (context) => OnGoing());
           case '/about':
-            return MaterialPageRoute(builder: (context) => OnGoing());
+            return MaterialPageRoute(builder: (context) => About());
           default:
             return null;
         }

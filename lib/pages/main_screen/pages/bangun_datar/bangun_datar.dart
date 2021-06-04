@@ -19,18 +19,7 @@ class BangunDatar extends StatefulWidget {
 class _BangunDatarState extends State<BangunDatar> {
   bool _isDone = false;
   List<PageMenuTileModel> get _menuData => [
-        PageMenuTileModel(
-          imageAsset: 'assets/images/bangun_datar/segitiga.png',
-          text: 'Segitiga',
-          textColor: Colors.white,
-          onTap: () {
-            Navigator.of(context).push(PageTransition(
-              child: Segitiga(),
-              type: PageTransitionType.fade,
-            ));
-          },
-        ),
-        PageMenuTileModel(
+                PageMenuTileModel(
           imageAsset: 'assets/images/bangun_datar/persegi.png',
           text: 'Persegi',
           textColor: Colors.white,
@@ -53,12 +42,24 @@ class _BangunDatarState extends State<BangunDatar> {
           },
         ),
         PageMenuTileModel(
-          imageAsset: 'assets/images/bangun_datar/lingkaran.png',
-          text: 'Lingkaran',
+          isSingleRow: true,
+          imageAsset: 'assets/images/bangun_datar/segitiga.png',
+          text: 'Segitiga',
           textColor: Colors.white,
           onTap: () {
             Navigator.of(context).push(PageTransition(
-              child: Lingkaran(),
+              child: Segitiga(),
+              type: PageTransitionType.fade,
+            ));
+          },
+        ),
+        PageMenuTileModel(
+          imageAsset: 'assets/images/bangun_datar/trapesium.png',
+          text: 'Trapesium',
+          textColor: Colors.white,
+          onTap: () {
+            Navigator.of(context).push(PageTransition(
+              child: Trapesium(),
               type: PageTransitionType.fade,
             ));
           },
@@ -74,13 +75,15 @@ class _BangunDatarState extends State<BangunDatar> {
             ));
           },
         ),
+        
         PageMenuTileModel(
-          imageAsset: 'assets/images/bangun_datar/trapesium.png',
-          text: 'Trapesium',
+          isSingleRow: true,
+          imageAsset: 'assets/images/bangun_datar/lingkaran.png',
+          text: 'Lingkaran',
           textColor: Colors.white,
           onTap: () {
             Navigator.of(context).push(PageTransition(
-              child: Trapesium(),
+              child: Lingkaran(),
               type: PageTransitionType.fade,
             ));
           },
