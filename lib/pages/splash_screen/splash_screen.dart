@@ -9,7 +9,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Future<void> _waitToLoad(BuildContext context) async {
-    await Future.delayed(Duration(milliseconds: 1200));
+    await Future.delayed(Duration(milliseconds: 9000));
     Navigator.of(context, rootNavigator: true).push(
       PageTransition(
         type: PageTransitionType.fade,

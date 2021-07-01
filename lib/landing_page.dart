@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kelompok_1/pages/about/about.dart';
+import 'package:kelompok_1/pages/main_screen/main_screen.dart';
 import 'package:kelompok_1/pages/on_going/on_going.dart';
 import 'package:kelompok_1/pages/splash_screen/splash_screen.dart';
 
@@ -16,7 +17,7 @@ class LandingPage extends StatelessWidget {
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/':
-            return MaterialPageRoute(builder: (context) => SplashScreen());
+            return MaterialPageRoute(builder: (context) => MainScreen());
           case '/settings':
             return MaterialPageRoute(builder: (context) => OnGoing());
           case '/beri_rating':
